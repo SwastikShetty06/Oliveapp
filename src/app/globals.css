@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-olive-bg: #F5FAF6;
+  --color-olive-dark: #1F3824;
+  --color-olive-lime: #AEB93E;
+  --color-olive-coral: #FF9DB4;
+  --color-olive-darkgreen: #386641;
+  --color-olive-lightgreen: #F0F7F2;
+  --color-primary: #1F3824;
+  --color-primary-foreground: #FFFFFF;
+
+  --font-inter: var(--font-inter);
+  --font-dm-sans: var(--font-dm-sans);
+  --font-pall: var(--font-playfair); /* Using 'pall' as in prompt HTML reference */
+
+  --shadow-bento: 2px 4px 16px 0px rgba(248, 248, 248, 0.06) inset;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .mask-l-from-50\% {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .mask-r-from-50\% {
+    mask-image: linear-gradient(to left, transparent, black 10%, black 90%, transparent);
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-olive-bg);
+  color: #1F1F1F;
 }
